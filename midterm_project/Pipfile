@@ -6,12 +6,11 @@ name = "pypi"
 [packages]
 pandas = "*"
 numpy = "*"
-jupyter = "*"
-ipykernel = "*"
 flask = "*"
 gunicorn = "*"
+sklearn = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.9.7"

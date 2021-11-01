@@ -16,3 +16,20 @@ https://www.kaggle.com/mirichoi0218/insurance
 
 # goal of the midterm project
 The task of the project is to create a model that can predict the personal insurance costs (column: charges) by using the provided features.
+
+# notebook
+The EDA and model selection can be found in the notebook. The final cells of the notebook contain code to test the local flask app and the public API.
+
+# virtual environ
+To install the required packages and enter the virtual environment, follow these steps:
+1. pipenv install
+2. pipenv shell
+
+# Docker
+To run the docker container locally, navigate to the midterm_project folder and execute the commands:
+1. docker build -t <image_name> . 
+2. docker run --name <container_name> -p 9696:9696 <image_name>
+
+# public APP deployment
+I deployed the APP on PythonAnywhere. You can send a POST request via `http://Karmufel.pythonanywhere.com/predict`.
+The last cell of the notebook provides an example.

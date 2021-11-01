@@ -33,7 +33,7 @@ def train(X_train, y_train):
     search.fit(X_train, y_train)
 
     with open(model_file_name, 'wb') as f_out:
-        pickle.dump(search, f_out)
+        pickle.dump(search.best_estimator_, f_out)
 
     print(f'the model is saved to {model_file_name}')
 

@@ -15,38 +15,28 @@ from images and to predict the correct flower type.
 - pictures are divided into five classes: chamomile, tulip, rose, sunflower, dandelion
 - photos have different sizes
 
-<div class="row">
-  <div class="rose">
-<figure>
-    <img src="example_images/rose.jpg" alt="rose" style="width:20%">
-    <figcaption>Rose</figcaption>
-</figure>
-  </div>
-  <div class="daisy">
-<figure>
-    <img src="example_images/daisy.jpg" alt="daisy" style="width:20%">
-    <figcaption>Daisy</figcaption>
-</figure>
-  </div>
-  <div class="sunflower">
-<figure>
-    <img src="example_images/sunflower.jpg" alt="sunflower" style="width:20%">
-    <figcaption>Sunflower</figcaption>
-</figure>
-  </div>
-  <div class="tulip">
-<figure>
-    <img src="example_images/tulip.jpg" alt="tulip" style="width:20%">
-    <figcaption>Tulip</figcaption>
-</figure>
-  </div>
-  <div class="dandelion">
-<figure>
-    <img src="example_images/dandelion.jpg" alt="dandelion" style="width:20%">
-    <figcaption>Dandelion</figcaption>
-</figure>
-  </div>
-</div>
+<p float="left">
+    <figure>
+        <img src="example_images/rose.jpg" alt="rose" style="width:20%">
+        <figcaption>Rose</figcaption>
+    </figure>
+    <figure>
+        <img src="example_images/daisy.jpg" alt="daisy" style="width:20%">
+        <figcaption>Daisy</figcaption>
+    </figure>
+    <figure>
+        <img src="example_images/sunflower.jpg" alt="sunflower" style="width:20%">
+        <figcaption>Sunflower</figcaption>
+    </figure>
+    <figure>
+        <img src="example_images/tulip.jpg" alt="tulip" style="width:20%">
+        <figcaption>Tulip</figcaption>
+    </figure>
+    <figure>
+        <img src="example_images/dandelion.jpg" alt="dandelion" style="width:20%">
+        <figcaption>Dandelion</figcaption>
+    </figure>
+<p>
 
 # notebook
 The EDA and model selection can be found in the notebook. The final cells of the notebook contain code to test the local flask app and the public API.

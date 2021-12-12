@@ -17,13 +17,19 @@ from images and to predict the correct flower type.
 
 <div class="row">
   <div class="rose">
-    <img src="example_images/rose.jpg" alt="rose" style="width:100%">
+    <img src="example_images/rose.jpg" alt="rose" style="width:20%">
   </div>
-  <div class="rose">
-    <img src="example_images/rose.jpg" alt="rose" style="width:100%">
+  <div class="daisy">
+    <img src="example_images/daisy.jpg" alt="daisy" style="width:20%">
   </div>
-  <div class="rose">
-    <img src="example_images/rose.jpg" alt="rose" style="width:100%">
+  <div class="sunflower">
+    <img src="example_images/sunflower.jpg" alt="sunflower" style="width:20%">
+  </div>
+  <div class="tulip">
+    <img src="example_images/tulip.jpg" alt="tulip" style="width:20%">
+  </div>
+  <div class="dandelion">
+    <img src="example_images/dandelion.jpg" alt="dandelion" style="width:20%">
   </div>
 </div>
 

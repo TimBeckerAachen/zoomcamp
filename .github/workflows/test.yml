@@ -11,14 +11,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
       - run: docker build --build-arg COPY_DIR="capstone_project/" -t flower-predict -f capstone_project/Dockerfile .
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     env:
       HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}

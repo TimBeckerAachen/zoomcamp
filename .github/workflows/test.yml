@@ -9,12 +9,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    env:
+      HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          echo 'HELLO'
-        env:
-          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - run: echo "HELLO"
+

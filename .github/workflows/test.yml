@@ -1,4 +1,4 @@
-name: CI-Pipeline pyhton 3.9.8
+name: deploy to heroku
 
 on:
   push:
@@ -9,13 +9,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  pre-build:
+  build:
     runs-on: ubuntu-latest
     env:
       HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
+      - run: docker build --build-arg COPY_DIR="capstone_project/" -t flower-predict -f capstone_project/Dockerfile .
+
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+    steps:
       - run: heroku container:login
-      - run: docker build --build-arg COPY_DIR=capstone_project -t flower-predict -f capstone_project/Dockerfile .
+      - run: docker tag flower-predict registry.heroku.com/flower-types/web
+      - run: docker push registry.heroku.com/flower-types/web
+      - run: heroku container:release web -a flower-types
 

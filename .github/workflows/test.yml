@@ -1,0 +1,20 @@
+name: CI-Pipeline pyhton 3.9.8
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          echo 'HELLO'
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}

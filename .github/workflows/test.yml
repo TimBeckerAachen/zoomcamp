@@ -17,5 +17,6 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v2
       - run: heroku container:login
+      - run: ls
       - run: docker build -t flower-predict -f capstone_project/Dockerfile .
 

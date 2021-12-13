@@ -12,6 +12,11 @@ from images and to predict the correct flower type.
 
 # Description of the dataset
 - dataset contains 4242 images of flowers
+  - 764 images of daisies
+  - 784 images of roses
+  - 984 images of tulips
+  - 1052 images of dandelions
+  - 733 images of sunflowers
 - pictures are divided into five classes: chamomile, tulip, rose, sunflower, dandelion
 - photos have different sizes
 
@@ -42,20 +47,30 @@ from images and to predict the correct flower type.
 The EDA and model selection can be found in the notebook. The final cells of the notebook contain code to test the local flask app and the public API.
 
 # virtual environ
-To install the required packages and enter the virtual environment, follow these steps:
-1. pipenv install
-2. pipenv shell
+To create a virtual environment (e.g. with virtualenv) and install the required packages, follow these steps:
+1. pip install virtualenv
+2. virtualenv <virtual_env_name>
+3. source <virtual_env_name>/bin/activate
+4. pip install install --extra-index-url https://google-coral.github.io/py-repo/ -r requirements.txt
+Leave the environment via:
+5. deactivate
 
 # Docker
-To run the docker container locally, navigate to the midterm_project folder and execute the commands:
+To run the docker container locally, navigate to the capstone_project folder and execute the commands:
 1. docker build -t <image_name> . 
 2. docker run --name <container_name> -p 9696:9696 <image_name>
 
 # public APP deployment
-The APP is deployed on PythonAnywhere. You can send a POST request via `http://Karmufel.pythonanywhere.com/predict`.
-The last cell of the notebook provides an example on how to use the APP.
+The APP is deployed on Heroku. You can send a POST request via `https://flower-types.herokuapp.com/predict` with a json 
+body with an url pointing to an image of a flower. The last cell of the notebook provides an example on how to use the APP.
 
-In order to deploy the APP, you have to create an account at `https://www.pythonanywhere.com`. After creating an 
-account, you need to upload the model `best_model.bin` and `flask_app.py` the script containing the flask APP to the 
-`mysite` folder. Subsequently, you need to open the console and install the required libraries. Finally, you can 
-navigate to the `Web` section and click on `Run until 3 month from today`. At the top of the page you can find the url.
+In order to deploy the APP, you have to create an account at `https://www.heroku.com`. After creating an 
+account, you can create a new APP by choosing a name and a region. Afterwards, you can deploy your APP by pushing 
+docker images to Heroku. Just follow these steps:
+1. brew tap heroku/brew && brew install heroku (install heroku cli on MAC `https://devcenter.heroku.com/articles/heroku-cli`)
+2. heroku login -i
+3. heroku container:login
+4. docker tag <image_name> registry.heroku.com/<app-name>/web
+5. docker push registry.heroku.com/<app-name>/web
+6. heroku container:release web -a <app-name>
+7. 

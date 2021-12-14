@@ -73,4 +73,9 @@ docker images to Heroku. Just follow these steps:
 4. docker tag <image_name> registry.heroku.com/<app-name>/web
 5. docker push registry.heroku.com/<app-name>/web
 6. heroku container:release web -a <app-name>
-7. 
+
+# To-do
+- different image sizes?
+- data augmentation
+- error -> not enough images (validation)
+- check images that were classified wrongly

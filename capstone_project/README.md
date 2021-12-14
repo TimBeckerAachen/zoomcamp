@@ -46,7 +46,7 @@ from images and to predict the correct flower type.
 # notebook
 The EDA and model selection can be found in the notebook. The final cells of the notebook contain code to test the local flask app and the public API.
 
-# virtual environ
+# virtual environment
 To create a virtual environment (e.g. with virtualenv) and install the required packages, follow these steps:
 1. pip install virtualenv
 2. virtualenv <virtual_env_name>

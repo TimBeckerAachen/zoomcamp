@@ -5,6 +5,10 @@ Capstone project for ML zoomcamp course: https://github.com/alexeygrigorev/mlboo
 Flowers recognition dataset from kaggle:
 https://www.kaggle.com/alxmamaev/flowers-recognition
 
+To work with the dataset move it to the location `path = '../data/flowers/'`, relative to the notebook and the other 
+files. There is a section at the beginning of the notebook which splits the data into train, validation and test set and
+creates the required folder structure.
+
 # goal of the capstone project
 The aim of the project is to create a model that can classify images of chamomile, tulip, rose, sunflower and dandelion 
 by providing urls to relevant pictures to an endpoint. The model should learn to recognize the varying characteristics

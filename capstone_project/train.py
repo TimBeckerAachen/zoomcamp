@@ -38,7 +38,7 @@ def build_model(conv_layers=1, learning_rate=3e-3, dropout_rate=0.2):
 
 def get_best_model():
     file_names = os.listdir('./')
-    models = [m for m in file_names if m.endswith('h5')]
+    models = [m for m in file_names if m.endswith('train.h5')]
     best_model = models[0]
     for model in models:
         if model.split('_')[3] > best_model.split('_')[3]:
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     )
 
     chechpoint = keras.callbacks.ModelCheckpoint(
-        'flower_model_{epoch:02d}_{val_accuracy:.3f}.h5',
+        'flower_model_{epoch:02d}_{val_accuracy:.3f}_train.h5',
         save_best_only=True,
         monitor='val_accuracy',
         mode='max')
@@ -81,14 +81,15 @@ if __name__ == '__main__':
     history = m.fit(
         train_data,
         steps_per_epoch=100,
-        epochs=20,
+        epochs=10,
         validation_data=val_data,
         validation_steps=10,
         callbacks=[chechpoint])
 
-    best_model = get_best_model()
+    best_model_path = get_best_model()
+    m.load_weights(best_model_path)
 
-    converter = tflite.TFLiteConverter.from_keras_model(best_model)
+    converter = tflite.TFLiteConverter.from_keras_model(m)
     tflite_model = converter.convert()
 
     model_path = './model.tflite'
